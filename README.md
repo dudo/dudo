@@ -9,6 +9,6 @@
 
 ### Passions
 
-- Big fan of Jeeps... 
+- Big fan of [Jeeps...](https://gist.github.com/dudo/5fb982228e88cf5826e7d54662788e16) 
 - Spend a lot of time tinkering on all sorts of passion projects, which are in a constant state of upgrading.
 - 💎 🖐️ 🦍
