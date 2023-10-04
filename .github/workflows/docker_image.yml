@@ -1,6 +1,12 @@
 on:
   workflow_call:
+  push:
+    branches:
+      - master
 name: Docker Image
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
 jobs:
   docker:
     name: Docker Image
@@ -8,16 +14,14 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-    - name: Docker meta
+    - name: Extract metadata for the Docker image
       id: meta
       uses: docker/metadata-action@v4
       with:
-        images: |
-          ghcr.io/${{ github.repository }}
-        flavor: |
-          latest=true
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         tags: |
-          type=sha
+          type=raw,value=latest,enable={{is_default_branch}}
+          type=sha,prefix={{branch}}-,suffix=-{{date 'X'}}
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
     - name: Set up Docker Buildx
@@ -29,9 +33,10 @@ jobs:
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: Build and push
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v4
       with:
         context: .
+        platforms: linux/amd64,linux/arm64
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
