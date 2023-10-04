@@ -1,27 +1,24 @@
 # Dudo's Engineering Philosophy
 
-<!-- Welcome to Company Engineering! If you stumbled upon this, and you’re not really sure what we’re about, please head over to <https://www.company.io>; send us your resume if you believe in our mission. If you’re new to the organization, we’re looking forward to working with you!
-
-Check out <https://github.com/orgs/company/discussions> for any new announcements and to read up on our [ADRs](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html). Hopefully this living document can help you get started with our stack, and serve as a North Star if you’re ever lost. -->
-
 ## Architecture
 
 > The battle against complexity in web development is a constant tug of war. We give a little to get something new, we take it back to make it simpler.
 > Progress is good. Complexity is a bridge. Simplicity is the destination.
 
-Funnily enough, this is a [quote from DHH](https://world.hey.com/dhh/introducing-propshaft-ee60f4f6). For those unfamiliar, DHH is the founder of Ruby's Rails framework, and is a huge proponent of the "mighty monolith." While we disagree with his ideal architecture, we very much subscribe to keeping things simple. In a similar vein, knowing when to buy something vs build it ourselves is an important part of our jobs. There's no need to be continually reinventing the wheel.
+I love this [quote from DHH](https://world.hey.com/dhh/introducing-propshaft-ee60f4f6). For those unfamiliar, DHH is the founder of Ruby's Rails framework, and is a huge proponent of the "mighty monolith." While I disagree with his ideal architecture, I very much subscribe to keeping things simple. In a similar vein, knowing when to buy something vs build it ourselves is an important part of our jobs. There's no need to be continually reinventing the wheel.
 
-Microservices for the win. Federated GraphQL to avoid Christmas tree? Kubernetes. Service mesh. Protobufs when talking svc-svc.
+- [Kubernetes](https://kubernetes.io/docs/tutorials/kubernetes-basics/) aids in automating deployment, scaling, and managing containerized [12-factor applications](https://12factor.net/).
+- [Federated GraphQL](https://www.apollographql.com/docs/federation/) helps in consolidating multiple GraphQL schemas into a single schema, facilitating better API organization and microservice communication.
+- [Service meshes](https://buoyant.io/service-mesh-manifesto) allow common application code for service-to-service communication to be shifted left and deployed independently from applications - traffic management, observability, and security.
+- [Schemas](https://protobuf.dev/) allow APIs to be built before a single line of code is written, often allowing client and server code to be programatically generated.
 
 ## Development Environment
 
-Containerization changed everything. Long ago are the days of needing a version manager for every language you’re tinkering with, and trying to remember the syntax of each one. [asdf](https://asdf-vm.com/) solves part of the problem, but [docker FROM](https://docs.docker.com/engine/reference/builder/#from) renders most version tooling obsolete. Pick a language and version (and even platform); now it’s not only checked into source code, but used in every environment.
+Containerization changed everything. Long ago are the days of needing a version manager for every language you’re tinkering with, and trying to remember the syntax of each one. [asdf](https://asdf-vm.com) solves part of the problem, but [docker FROM](https://docs.docker.com/engine/reference/builder/#from) renders most version tooling obsolete. Pick a language and version, build up a Dockerfile, and now an image is checked into source code, and used in every environment! [Compose](https://docs.docker.com/compose/compose-file/03-compose-file/) makes stitching apps, data stores, and tooling together painless.
 
-But there’s so much more... the Dockerfile allows you to configure a “box” with as much or as little as you desire - and it’s reproducible! 🪦 Chef and Ansible. You can easily look at a Dockerfile, and with a basic understanding of how a shell works, know what you can expect from the container it will spin up.
+All that is to say that setting up our local environment is as easy as setting up [docker](https://docs.docker.com/desktop/)...
 
-All that is to say that setting up your local environment is as easy as setting up [docker](https://docs.docker.com/desktop/)...
-
-Compose files are included with tooling to run language/framework commands:
+[Compose files](https://gist.github.com/dudo/96cd32821e78385c88560b50b7a12a4d) can be configured with tooling to run any language/framework commands. I prefer them to Makefiles.
 
 ```sh
 # pro-tip
@@ -47,11 +44,11 @@ docker compose up -d
 
 ## Pre-commit Hooks
 
-We don’t want to argue about style... there are linters provided for most languages that cover everything from syntax to formatting to deprecations to complexity. Make sure your editor is setup to use those linters, or get yelled at by the hooks before you can commit your changes.
+Let's not argue about style... there are linters provided for most languages that cover everything from syntax to formatting to deprecations to complexity. Make sure our editor is setup to use those linters, or get yelled at by the hooks before we can commit our changes (or worse, CI fails).
 
 ## Continuous Integration
 
-We’re avid believers of protecting ourselves from... ourselves. CI enables us to do things like:
+Let's protect ourselves from... ourselves. CI enables us to do things like:
 
 - verify our tests are passing
 - check our code against linters
@@ -59,9 +56,9 @@ We’re avid believers of protecting ourselves from... ourselves. CI enables us 
 - build various artifacts
 - keep our dependencies current
 
-...all without you really having to know much about the repo. Just like the REPL you get into when you’re debugging code, CI let’s you know when things aren’t ready to be merged just yet, and most importantly, how to rectify things!
+...all without really having to know much about any given repo. Integration failures can be configured to be quite verbose, with clear steps to rectify any errors.
 
-We make extensive use of GitHub Actions. Reusable workflows are kept in <https://github.com/dudo/dudo>, and templates for adding Actions to a new repo are available in <https://github.com/dudo/.github/workflow-templates>.
+GitHub Actions is a wonderful solution. Some reusable workflows are kept in <https://github.com/dudo/dudo/tree/main/.github/workflows>, and some templates for adding Actions to a repo are available in <https://github.com/dudo/.github/tree/main/workflow-templates>.
 
 ## Continuous Deployment
 
