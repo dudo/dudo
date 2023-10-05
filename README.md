@@ -1,4 +1,4 @@
-# Dudo's Engineering Philosophy
+# Engineering Philosophy
 
 ## Architecture
 
