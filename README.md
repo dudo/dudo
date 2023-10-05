@@ -58,7 +58,7 @@ Let's protect ourselves from... ourselves. CI enables us to do things like:
 
 ...all without really having to know much about any given repo. Integration failures can be configured to be quite verbose, with clear steps to rectify any errors.
 
-GitHub Actions is a wonderful solution. Some reusable workflows are kept in <https://github.com/dudo/dudo/tree/main/.github/workflows>, and some templates for adding Actions to a repo are available in <https://github.com/dudo/.github/tree/main/workflow-templates>.
+GitHub Actions is a wonderful solution. Here are some reusable [workflows](https://github.com/dudo/dudo/tree/main/.github/workflows), and some [templates](https://github.com/dudo/.github/tree/main/workflow-templates) for adding Actions to a repo.
 
 ## Continuous Deployment
 
