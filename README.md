@@ -68,7 +68,7 @@ Embracing GitOps, tools like [Flux](https://www.weave.works/oss/flux/) and [Argo
 
 GitOps extends its "single source of truth" philosophy into our infrastructure, ensuring that our declarations in git are faithfully manifested in reality.
 
-- [Terraform](https://www.terraform.io/) has been the defacto infrastructure as code (IaC) tool (though that'll probably change with the recent BSL).
+- [Terraform](https://www.terraform.io/) has been the defacto infrastructure as code (IaC) tool (though that'll probably change with the recent BSL). Most cloud providers have their own tooling, which, let's be honest - are we really going multi-cloud?
 - Secrets are tucked away in [Vault](https://www.vaultproject.io/) or the cloud provider's secret manager, then pulled back into the cluster via [external-secrets-operator](https://external-secrets.io/latest/).
 
 ## Security
