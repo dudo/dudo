@@ -86,4 +86,4 @@ So... your PR was merged. Congratulations! An image was built, tagged, and pushe
 
 If you can afford [Datadog](https://docs.datadoghq.com/tracing/), go with them - they're the best (and they know it $$$). [Grafana's LGTM stack](https://grafana.com/) is pretty great for self-managed setups. Regardless of the tool, microservices necessitate advanced observability, and distributed tracing is a must have. Logs and metrics still serve their purpose, even though there are companies like [Observe](https://www.observeinc.com/) and [Honeycomb](https://docs.honeycomb.io/concepts/events-metrics-logs/) are embracing events.
 
-[Go SLO to go fast.](https://cloud.google.com/blog/products/devops-sre/sre-fundamentals-slis-slas-and-slos)
+Always remember to go [SLO](https://cloud.google.com/blog/products/devops-sre/sre-fundamentals-slis-slas-and-slos) to go fast!
