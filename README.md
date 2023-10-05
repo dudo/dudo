@@ -10,7 +10,7 @@ I love this [quote from DHH](https://world.hey.com/dhh/introducing-propshaft-ee6
 - [Kubernetes](https://kubernetes.io/docs/tutorials/kubernetes-basics/) aids in automating deployment, scaling, and managing containerized [12-factor applications](https://12factor.net/). Deployed in the cloud, scaling with the ebb and flow of traffic is possible.
 - [Federated GraphQL](https://www.apollographql.com/docs/federation/) helps in consolidating multiple GraphQL schemas into a single schema, facilitating better API organization and microservice communication.
 - [Service meshes](https://buoyant.io/service-mesh-manifesto) allow common application code for service-to-service communication to be shifted left and deployed independently from applications - traffic management, observability, and security.
-- [Schemas](https://protobuf.dev/) allow APIs to be built before a single line of code is written, often allowing client and server code to be programatically generated.
+- [Schemas](https://protobuf.dev/) allow APIs to be built before a single line of code is written, often allowing client and server code to be programmatically generated.
 
 ## Development Environment
 
@@ -66,7 +66,7 @@ Embracing GitOps, tools like [Flux](https://www.weave.works/oss/flux/) and [Argo
 
 ## Provisioning Resources
 
-GitOps extends its "single source of truth" philosophy into our infrastructure, ensuring that our declarations in git are faithfully manifested in reality. 
+GitOps extends its "single source of truth" philosophy into our infrastructure, ensuring that our declarations in git are faithfully manifested in reality.
 
 - [Terraform](https://www.terraform.io/) has been the defacto infrastructure as code (IaC) tool (though that'll probably change with the recent BSL).
 - Secrets are tucked away in [Vault](https://www.vaultproject.io/) or the cloud provider's secret manager, then pulled back into the cluster via [external-secrets-operator](https://external-secrets.io/latest/).
