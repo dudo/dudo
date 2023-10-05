@@ -7,7 +7,7 @@
 
 I love this [quote from DHH](https://world.hey.com/dhh/introducing-propshaft-ee60f4f6). For those unfamiliar, DHH is the founder of Ruby's Rails framework, and is a huge proponent of the "mighty monolith." While I disagree with his ideal architecture, I very much subscribe to keeping things simple. In a similar vein, knowing when to buy something vs build it ourselves is an important part of our jobs. There's no need to be continually reinventing the wheel.
 
-- [Kubernetes](https://kubernetes.io/docs/tutorials/kubernetes-basics/) aids in automating deployment, scaling, and managing containerized [12-factor applications](https://12factor.net/).
+- [Kubernetes](https://kubernetes.io/docs/tutorials/kubernetes-basics/) aids in automating deployment, scaling, and managing containerized [12-factor applications](https://12factor.net/). Deployed in the cloud, scaling with the ebb and flow of traffic is possible.
 - [Federated GraphQL](https://www.apollographql.com/docs/federation/) helps in consolidating multiple GraphQL schemas into a single schema, facilitating better API organization and microservice communication.
 - [Service meshes](https://buoyant.io/service-mesh-manifesto) allow common application code for service-to-service communication to be shifted left and deployed independently from applications - traffic management, observability, and security.
 - [Schemas](https://protobuf.dev/) allow APIs to be built before a single line of code is written, often allowing client and server code to be programatically generated.
@@ -44,7 +44,7 @@ docker compose up -d
 
 ## Pre-commit Hooks
 
-Let's not argue about style... there are linters provided for most languages that cover everything from syntax to formatting to deprecations to complexity. Make sure our editor is setup to use those linters, or get yelled at by the hooks before we can commit our changes (or worse, CI fails).
+Let's not argue about style... there are linters provided for every language that cover anything from syntax to formatting to deprecations to complexity. Make sure our editor is setup to use those linters, or get yelled at by the hooks before we can commit our changes (or worse, CI fails).
 
 ## Continuous Integration
 
@@ -62,14 +62,28 @@ GitHub Actions is a wonderful solution. Some reusable workflows are kept in <htt
 
 ## Continuous Deployment
 
-GitOps. Flux pull-based. Kubernetes.
+Embracing GitOps, tools like [Flux](https://www.weave.works/oss/flux/) and [ArgoCD](https://argo-cd.readthedocs.io/en/stable/) enable pull-based deployments straight to Kubernetes. This keeps git as our single source of truth, and operators within the K8s cluster tirelessly ensure that their state is mirrored with git state, automating the hop from merged code to deployed software... continuously. These tools simplify the journey from code to cloud, embodying the KISS mantra while efficiently navigating the complexities of CD.
 
 ## Provisioning Resources
 
-GitOps. Terraform. Databases. K8s cluster. Auto scaling k8s.
+GitOps extends its "single source of truth" philosophy into our infrastructure, ensuring that our declarations in git are faithfully manifested in reality. 
+
+- [Terraform](https://www.terraform.io/) has been the defacto infrastructure as code (IaC) tool (though that'll probably change with the recent BSL).
+- Secrets are tucked away in [Vault](https://www.vaultproject.io/) or the cloud provider's secret manager, then pulled back into the cluster via [external-secrets-operator](https://external-secrets.io/latest/).
+
+## Security
+
+Security is like an onion...
+
+- Starting with code, employ static analysis tools to catch vulnerabilities before they reach production. CI should be running a suite of security checks with every commit.
+- Prefer hardened, minimal base images and employ network policies to create a fortress around services. Terraform isn’t just for provisioning; it’s for crafting a secure foundation.
+- At runtime, embrace a defense-in-depth strategy. [Monitoring, logging, and alerting systems](https://panther.com/) keep us informed, while an incident response plan ensures we're ready to act when necessary.
+- Continuous education and adherence to best practices like regular patching and updates, ensure we're always a step ahead.
 
 ## Observability
 
-So... your PR was merged. Congratulations! An image was built, tagged, and pushed up to the container registry. Kubernetes has presumably detected the new tag, pulled the image, and started scaling up replica sets. Incoming requests are gradually diverted to the new pods. Your changes are taking traffic. Now what?
+So... your PR was merged. Congratulations! An image was built, tagged, and pushed up to the container registry. An operator within K8s has presumably detected the new tag, pulled the image, and started a canary rollout. Incoming requests are gradually diverted to new pods. Your changes are taking traffic. Now what?
 
-Go SLO to go fast. Microservices necessitate advanced observability. Distributed tracing.
+If you can afford [Datadog](https://docs.datadoghq.com/tracing/), go with them - they're the best (and they know it $$$). [Grafana's LGTM stack](https://grafana.com/) is pretty great for self-managed setups. Regardless of the tool, microservices necessitate advanced observability, and distributed tracing is a must have. Logs and metrics still serve their purpose, even though there are companies like [Observe](https://www.observeinc.com/) and [Honeycomb](https://docs.honeycomb.io/concepts/events-metrics-logs/) are embracing events.
+
+[Go SLO to go fast.](https://cloud.google.com/blog/products/devops-sre/sre-fundamentals-slis-slas-and-slos)
