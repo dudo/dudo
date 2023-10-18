@@ -7,10 +7,13 @@
 
 I love this [quote from DHH](https://world.hey.com/dhh/introducing-propshaft-ee60f4f6). For those unfamiliar, DHH is the founder of Ruby's Rails framework, and is a huge proponent of the "mighty monolith." While I disagree with his ideal architecture, I very much subscribe to keeping things simple. In a similar vein, knowing when to buy something vs build it ourselves is an important part of our jobs. There's no need to be continually reinventing the wheel.
 
-- [Kubernetes](https://kubernetes.io/docs/tutorials/kubernetes-basics/) aids in automating deployment, scaling, and managing containerized [12-factor applications](https://12factor.net/). Deployed in the cloud, scaling with the ebb and flow of traffic is possible.
+Microservices are easily wrangled with modern tooling:
+
+- [Container Orchestration](https://kubernetes.io/docs/tutorials/kubernetes-basics/) aids in automating deployment, scaling, and managing containerized [12-factor applications](https://12factor.net/). Deployed in the cloud, scaling with the ebb and flow of traffic is possible.
 - [Service meshes](https://buoyant.io/service-mesh-manifesto) allow common application code for service-to-service communication to be shifted left and deployed independently from applications - traffic management, observability, and security.
 - [Schemas](https://protobuf.dev/) allow APIs to be built before a single line of code is written, often allowing client and server code to be programmatically generated.
 - [Federated GraphQL](https://www.apollographql.com/docs/federation/) helps in consolidating multiple GraphQL schemas into a single schema, facilitating better API organization and microservice communication. This is great for keeping an API unidirectional.
+- [Events](https://en.wikipedia.org/wiki/Event-driven_architecture) decouple services from one another. Through asynchronous, event-based communication, we improve scalability, resiliency, and flexibility.
 
 ## Development Environment
 
