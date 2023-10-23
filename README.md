@@ -5,7 +5,7 @@
 > The battle against complexity in web development is a constant tug of war. We give a little to get something new, we take it back to make it simpler.
 > Progress is good. Complexity is a bridge. Simplicity is the destination.
 
-I love this [quote from DHH](https://world.hey.com/dhh/introducing-propshaft-ee60f4f6). For those unfamiliar, DHH is the founder of Ruby's Rails framework, and is a huge proponent of the "mighty monolith." While I disagree with his ideal architecture, I very much subscribe to keeping things simple. In a similar vein, knowing when to buy something vs build it ourselves is an important part of our jobs. There's no need to be continually reinventing the wheel.
+I love this [quote from DHH](https://world.hey.com/dhh/introducing-propshaft-ee60f4f6). For those unfamiliar, DHH is the founder of Ruby's Rails framework, and is a huge proponent of the "mighty monolith." While I disagree with his ideal architecture, I very much subscribe to keeping things simple. Tangentially, knowing when to buy something vs build it ourselves is an important part of our jobs. There's no need to be continually reinventing the wheel.
 
 Microservices are easily wrangled with modern tooling:
 
