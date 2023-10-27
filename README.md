@@ -82,7 +82,7 @@ Security is like an onion...
 
 So... your PR was merged. Congratulations! An image was built, tagged, and pushed up to the container registry. An operator within Kubernetes has presumably detected the new tag, pulled the image, and started a canary rollout. Incoming requests are gradually diverted to new pods. Your changes are taking traffic. Now what?
 
-If you can afford [Datadog](https://docs.datadoghq.com/tracing/), go with them - they're the best (and they know it $$$). [Grafana's LGTM stack](https://grafana.com/) is pretty great for self-managed setups. Regardless of the tool, microservices necessitate advanced observability, and distributed tracing is a must have. Logs and metrics still serve their purpose, even though there are companies like [Observe](https://www.observeinc.com/) and [Honeycomb](https://docs.honeycomb.io/concepts/events-metrics-logs/) have migrated to events.
+If you can afford [Datadog](https://docs.datadoghq.com/tracing/), go with them as they're best-in-class. [Grafana's LGTM stack](https://grafana.com/) is excellent for self-managed setups. Regardless of the tool, microservices necessitate advanced observability, and distributed tracing is necessary. Logs and metrics still have their utility, but some companies have transitioned to event-based systems.
 
 Last, but not least, always remember to go [SLO](https://cloud.google.com/blog/products/devops-sre/sre-fundamentals-slis-slas-and-slos) to go fast!
 
