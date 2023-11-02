@@ -5,7 +5,7 @@
 > The battle against complexity in web development is a constant tug of war. We give a little to get something new, we take it back to make it simpler.
 > Progress is good. Complexity is a bridge. Simplicity is the destination.
 
-I love this [quote from DHH](https://world.hey.com/dhh/introducing-propshaft-ee60f4f6). For those unfamiliar, DHH is the founder of Ruby's Rails framework, and is a huge proponent of the "mighty monolith." While I admire DHH's stance on simplicity, I diverge on architectural ideals. Modern tooling streamlines microservices management:
+I love this [quote from DHH](https://world.hey.com/dhh/introducing-propshaft-ee60f4f6). For those unfamiliar, DHH is the founder of Ruby's Rails framework, and is a huge proponent of the "mighty monolith." While I admire DHH's stance on simplicity, we diverge on architectural ideals. Modern tooling streamlines microservices management:
 
 - [Container Orchestration](https://kubernetes.io/docs/tutorials/kubernetes-basics/) in the cloud automates deployment and scaling of [12-factor apps](https://12factor.net/).
 - [Service meshes](https://buoyant.io/service-mesh-manifesto) externalize common code for inter-service communication. This enhances traffic management and security.
