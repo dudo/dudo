@@ -94,7 +94,7 @@ Last, but not least, always remember to go [SLO](https://cloud.google.com/blog/p
 
 ![Back-end](https://skillicons.dev/icons?i=ruby,go,nodejs,scala)
 
-![Infrastructure](https://skillicons.dev/icons?i=linux,kubernetes,nginx,redis,postgres,kafka)
+![Infrastructure](https://skillicons.dev/icons?i=linux,kubernetes,kafka,grafana)
 
 ---
 
