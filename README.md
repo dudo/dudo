@@ -13,7 +13,7 @@ I love this [quote from DHH](https://world.hey.com/dhh/introducing-propshaft-ee6
 - [Federated GraphQL](https://www.apollographql.com/docs/federation/) consolidates GraphQL schemas, optimizing API organization and microservice communication.
 - [Events](https://en.wikipedia.org/wiki/Event-driven_architecture) foster service independence, boosting scalability and resiliency via asynchronous communication.
 
-Tangentially, an essential part of our job is knowing when to buy versus build. When services are small and have a singular purpose, there's often a SAAS solution. There's no sense in reinventing the wheel.
+Tangentially, an essential part of our job is knowing when to buy versus build. When services are small and have a singular purpose, there's often a SaaS solution. There's no sense in reinventing the wheel, after all.
 
 ## Development Environment
 
@@ -31,15 +31,13 @@ dr npm update
 dr go get -d golang.org/x/net
 dr go mod tidy
 
-dr bundle exec rails specs
-dr bundle exec rails g model thing
+dr bundle install
 dr bundle exec rails db:setup
 ```
 
-Spinning up a local server typically consists of:
+Spinning up a local environment simply consists of:
 
 ```sh
-cp .env.sample .env
 docker compose up -d
 ```
 
@@ -82,9 +80,21 @@ Security is like an onion...
 
 So... your PR was merged. Congratulations! An image was built, tagged, and pushed up to the container registry. An operator within Kubernetes has presumably detected the new tag, pulled the image, and started a canary rollout. Incoming requests are gradually diverted to new pods. Your changes are taking traffic. Now what?
 
-If you can afford [Datadog](https://docs.datadoghq.com/tracing/), go with them as they're best-in-class. [Grafana's LGTM stack](https://grafana.com/) is excellent for self-managed setups. Regardless of the tool, microservices necessitate advanced observability, and distributed tracing is necessary. Logs and metrics still have their utility, but some companies have transitioned to event-based systems.
+If you can afford [Datadog](https://docs.datadoghq.com/tracing/), go with them as they're best-in-class. [Grafana's LGTM stack](https://grafana.com/) is excellent for self-managed setups. Regardless of the tool, microservices necessitate advanced observability, and distributed tracing is critical. Logs and metrics still have their utility, but some companies have transitioned to event-based systems.
 
 Last, but not least, always remember to go [SLO](https://cloud.google.com/blog/products/devops-sre/sre-fundamentals-slis-slas-and-slos) to go fast!
+
+## Skills
+
+![Development Environment](https://skillicons.dev/icons?i=docker,vscode,git,github)
+
+![Cloud](https://skillicons.dev/icons?i=terraform,aws,gcp,cloudflare)
+
+![Front-end](https://skillicons.dev/icons?i=js,graphql,react,tailwind)
+
+![Back-end](https://skillicons.dev/icons?i=ruby,go,nodejs,scala)
+
+![Infrastructure](https://skillicons.dev/icons?i=linux,kubernetes,nginx,redis,postgres,kafka)
 
 ---
 
